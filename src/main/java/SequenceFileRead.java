@@ -61,7 +61,7 @@ public class SequenceFileRead {
         Scanner scanner = new Scanner(System.in);
         System.out.println("输入文件名：");
         String fileStr = scanner.next();
-        System.out.println( "正在下载:" + fileStr);
+        System.out.println( "正在下载:" + fileStr + "\r");
 
         while(reader.next(key, value)){
             if (key.toString().equals(fileStr)){
