@@ -2,13 +2,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.URI;
+import java.util.List;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FileStatus;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.FSDataInputStream;
+import org.apache.hadoop.fs.*;
+import org.apache.hadoop.fs.permission.FsPermission;
 import org.apache.hadoop.io.IOUtils;
 
 public class HDFSClientTest {
@@ -33,18 +31,32 @@ public class HDFSClientTest {
 //        IOUtils.copyBytes(fsdi,output,4096,true);
 
         //本地上传
-        Path src = new Path("/Users/wangshijie/Desktop/SSM小文件处理.pptx");
-        Path des = new Path("/user/wenjunli/times/fromlocal.pptx");
-        fs.copyFromLocalFile(src, des);
+//        Path src = new Path("/Users/wangshijie/Desktop/Transwarp/Srcdata/cq/201806102049340010711028.txt.gz");
+//        Path des = new Path("/user/wsj/data/cq/201806102249340010711028.txt.gz");
+//        fs.copyFromLocalFile(src, des);
+//
+//        FileUtil.copy(fs,src,fs,des,false,conf);
+
+        //hdfs复制
+//        Path src = new Path("/user/wsj/data/cq/201806102249340010711028.txt.gz");
+//        Path des = new Path("/user/wsj/data/bj/201806101750340010711028.txt.gz");
+//        FileUtil.copy(fs,src,fs,des,false,conf);
 
         //输出到控制台
-        FSDataInputStream is = fs.open(new Path("/user/wsj/password.txt"));
-        byte[] buff = new byte[1024];
-        int length = 0;
-        while ((length = is.read(buff)) != -1){
-            System.out.println(new String(buff,0,length));
-        }
-        System.out.println(fs.getClass().getName());
-    }
+//        FSDataInputStream is = fs.open(new Path("/user/wsj/password.txt"));
+//        byte[] buff = new byte[1024];
+//        int length = 0;
+//        while ((length = is.read(buff)) != -1){
+//            System.out.println(new String(buff,0,length));
+//        }
+//        System.out.println(fs.getClass().getName());
+        //新建文件夹
+//        Path path = new Path("/user/wsj/data/hb");
+//        fs.mkdirs(path);
 
+        //删除
+        Path path = new Path("/user/wsj/test/cq");
+        fs.delete(path,true);
+
+    }
 }
