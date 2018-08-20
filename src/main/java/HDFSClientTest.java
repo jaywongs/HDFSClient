@@ -10,7 +10,7 @@ import org.apache.hadoop.fs.permission.FsPermission;
 import org.apache.hadoop.io.IOUtils;
 
 public class HDFSClientTest {
-    public static void main (String[] args) throws IOException {
+    public static void main (String[] args) throws Exception {
         //set config
         Configuration conf = new Configuration();
 //        conf.set("fs.defaultFS","hdfs://172.16.132.74:8020");
@@ -31,15 +31,15 @@ public class HDFSClientTest {
 //        IOUtils.copyBytes(fsdi,output,4096,true);
 
         //本地上传
-//        Path src = new Path("/Users/wangshijie/Desktop/Transwarp/Srcdata/cq/201806102049340010711028.txt.gz");
-//        Path des = new Path("/user/wsj/data/cq/201806102249340010711028.txt.gz");
+//        Path src = new Path("/Users/wangshijie/Downloads/test/cq/part_fdr/201806102011028.tar/201806102011028-part-0");
+//        Path des = new Path("/user/wsj/tmp/cq20180723");
 //        fs.copyFromLocalFile(src, des);
 //
 //        FileUtil.copy(fs,src,fs,des,false,conf);
 
         //hdfs复制
-//        Path src = new Path("/user/wsj/data/cq/201806102249340010711028.txt.gz");
-//        Path des = new Path("/user/wsj/data/bj/201806101750340010711028.txt.gz");
+//        Path src = new Path("/user/wsj/tmp/cq20180723/201806102011028-part-1.txt.gz");
+//        Path des = new Path("/user/wsj/tmp/cq20180610/201806102011028-part-1.txt.gz");
 //        FileUtil.copy(fs,src,fs,des,false,conf);
 
         //输出到控制台
@@ -51,12 +51,11 @@ public class HDFSClientTest {
 //        }
 //        System.out.println(fs.getClass().getName());
         //新建文件夹
-//        Path path = new Path("/user/wsj/data/hb");
+//        Path path = new Path("/user/wsj/data");
 //        fs.mkdirs(path);
 
         //删除
-        Path path = new Path("/user/wsj/test/cq");
+        Path path = new Path("/user/wenjunli/datadir/bj");
         fs.delete(path,true);
-
     }
 }
